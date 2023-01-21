@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'category',
     'users',   
-    'store',            
+    'store',   
+    'carts',         
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'carts.context_processors.counter',
             ],
         },
     },
@@ -142,4 +144,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
+
+DEFAULT_AUTO_FIELD='django.db.models.BigAutoField'
 
