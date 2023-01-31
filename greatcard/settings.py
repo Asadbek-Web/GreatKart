@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'category',
     'users',   
     'store',   
+    'orders',
 
     #installed packages
     'requests',
