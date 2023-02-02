@@ -11,12 +11,14 @@ class MyAccountManager(BaseUserManager):
         if not username:
             raise ValueError('User must have an username')
         
+
         user = self.model(
             email = self.normalize_email(email),
             username = username,
-            first_name = first_name,
+            first_name = first_name,    
             last_name = last_name, 
         )
+
 
         user.set_password(password)
         user.save(using=self._db)
@@ -65,6 +67,9 @@ class CustomUser(AbstractBaseUser):
 
 
     objects = MyAccountManager()
+
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
 
     def __str__(self):
         return self.email

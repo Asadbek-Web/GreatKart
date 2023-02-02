@@ -139,7 +139,7 @@ def login(request):
 @login_required(login_url = 'login')
 def logout(request):
     auth.logout(request)
-    messages.success(request, 'You are logged out!..')
+    messages.success(request, 'You are logged out.')
     return redirect('login')
     
 
