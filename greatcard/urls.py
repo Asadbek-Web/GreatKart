@@ -20,12 +20,21 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
+
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('secured_login/', admin.site.urls),
     path('', views.home, name='home'),
     path('store/', include('store.urls')),
     path('cart/', include('carts.urls')),
     path('users/', include('users.urls')),
 
     path('orders/', include('orders.urls')),
+
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('favicon/favicon.ico'))),
+    
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
