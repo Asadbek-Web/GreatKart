@@ -98,11 +98,11 @@ AUTH_USER_MODEL = 'users.CustomUser'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'greatkart',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
+        'HOST': 'containers-us-west-135.railway.app',
+        'PORT': 6115
     }
 }
 
