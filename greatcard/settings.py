@@ -96,16 +96,16 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
-#         'HOST': 'containers-us-west-135.railway.app',
-#         'PORT': 6115
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
+        'HOST': 'containers-us-west-135.railway.app',
+        'PORT': 6115
+    }
+}
 
 DATABASES = {'default': dj_database_url.config(default='postgres://postgres:vtsv5fXe6DZBSI1lLwia@containers-us-west-135.railway.app:6115/railway')}
 # Password validation
