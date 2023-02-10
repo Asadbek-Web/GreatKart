@@ -9,11 +9,12 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import dj_database_url
 import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 from decouple import config
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool) #True
 
-ALLOWED_HOSTS = ['127.0.0.1', ]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'greatkart-shop.up.railway.app']
 
 
 # Application definition
@@ -95,18 +96,18 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
-        'HOST': 'containers-us-west-135.railway.app',
-        'PORT': 6115
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
+#         'HOST': 'containers-us-west-135.railway.app',
+#         'PORT': 6115
+#     }
+# }
 
-
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:vtsv5fXe6DZBSI1lLwia@containers-us-west-135.railway.app:6115/railway')}
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
