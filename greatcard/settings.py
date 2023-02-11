@@ -11,11 +11,16 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import dj_database_url
 import os
+import sys
 from pathlib import Path
 from django.contrib.messages import constants as messages
 from decouple import config
 
 
+
+path = '/home/greatkart'
+if path not in sys.path:
+    sys.path.insert(0, path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -110,12 +115,13 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
-        'HOST': 'containers-us-west-135.railway.app',
-        'PORT': 6115
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': 'railway',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
+        # 'HOST': 'containers-us-west-135.railway.app',
+        # 'PORT': 6115
     }
 }
 
@@ -189,3 +195,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'abdumalikovfourth@gmail.com'
 EMAIL_HOST_PASSWORD = 'wzgicbfsxaicuema'
 EMAIL_USE_TLS = True
+
+
+
+
+
+
+
+
+
+# https://youtu.be/NUqtNglEcCU
