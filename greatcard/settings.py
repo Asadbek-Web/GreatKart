@@ -115,15 +115,15 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # 'NAME': 'railway',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'vtsv5fXe6DZBSI1lLwia',
-        # 'HOST': 'containers-us-west-135.railway.app',
-        # 'PORT': 6115
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'VM0WLVb5Fz3YdId8fdDT',
+        'HOST': 'containers-us-west-165.railway.app',
+        'PORT': 7558
     }
 }
+        # 'NAME': BASE_DIR / 'db.sqlite3',
 
 # DATABASES = {'default': dj_database_url.config(default='postgres://postgres:vtsv5fXe6DZBSI1lLwia@containers-us-west-135.railway.app:6115/railway')}
 # Password validation
