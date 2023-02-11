@@ -96,6 +96,18 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'greatkart',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -107,7 +119,7 @@ DATABASES = {
     }
 }
 
-DATABASES = {'default': dj_database_url.config(default='postgres://postgres:vtsv5fXe6DZBSI1lLwia@containers-us-west-135.railway.app:6115/railway')}
+# DATABASES = {'default': dj_database_url.config(default='postgres://postgres:vtsv5fXe6DZBSI1lLwia@containers-us-west-135.railway.app:6115/railway')}
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -165,9 +177,16 @@ MESSAGE_TAGS = {
 }
 
 #SMTP configuration 
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'abdumalikovfourth@gmail.com'
+EMAIL_HOST_PASSWORD = 'wzgicbfsxaicuema'
+EMAIL_USE_TLS = True
