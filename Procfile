@@ -1,1 +1,1 @@
-# web:gunicorn <greatcard>.wsgi
+web:gunicorn <greatcard>.wsgi
