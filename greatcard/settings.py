@@ -37,7 +37,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool) #True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'greatkartshop.up.railway.app']
 
 
 # Application definition
@@ -115,16 +115,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'VM0WLVb5Fz3YdId8fdDT',
-#         'HOST': 'containers-us-west-165.railway.app',
-#         'PORT': 7558
-#     }
-# }
 
 # DATABASES = {
 #     'default': {
