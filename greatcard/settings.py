@@ -13,7 +13,12 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 from decouple import config
+from setuptools import setup
 
+setup(
+    name='setup.py',
+    version='1.0.0',
+)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
