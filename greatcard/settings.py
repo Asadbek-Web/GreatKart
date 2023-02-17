@@ -14,12 +14,8 @@ import dj_database_url
 from pathlib import Path
 from django.contrib.messages import constants as messages
 from decouple import config
-# from setuptools import setup
+from django.utils.translation import gettext_lazy as _
 
-# setup(
-#     name='setup.py',
-#     version='1.0.0',
-# )
 
 
 DATABASE_URL = "postgresql://postgres:rEN82cqTfUUCDVPnTF2o@containers-us-west-192.railway.app:5563/railway"
@@ -66,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 SESSION_EXPIRE_SECONDS = 3600  # 1 hour
@@ -104,30 +101,23 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'greatkart',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'localhost',
-#         'PORT': 5432
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }, 
-# }
-
-
-
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'greatkart',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': 5432
     }
+}
+
+
+
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
+#     }
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -161,6 +151,19 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Enable i18n
+USE_I18N = True
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ar-ae', _('French')),
+    ('ru', _('Russian')),
+]
+
+LOCALE_PATHS = os.path.join(BASE_DIR / 'locale/')
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -189,9 +192,6 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-
-
-
 
 
 
